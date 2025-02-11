@@ -28,6 +28,7 @@ function getAuthUserId() {
 
 function jsonToFormData(json){
     const formData = new FormData();
+    console.log(formData);
 
     const appendFormData = (data, parentKey) => {
         if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
@@ -67,11 +68,14 @@ async function getData(endpoint) {
             headers: createHeaders(),
         });
         const responseData = await response.json();
+        console.log(responseData);
         return {
             ok: response.ok,
             status: response.status,
             data: responseData
         };
+        
+        
 
     } catch (error) {
         return {
