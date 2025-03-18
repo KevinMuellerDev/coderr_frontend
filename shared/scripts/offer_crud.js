@@ -8,14 +8,10 @@ let allOffersLength=null;
 
 async function setOffers(filterParams = {}) {
     let offerResp = await getData(OFFER_URL + getOfferFilter(filterParams));
-    console.log(offerResp);
     
     if (offerResp.ok) {
         allOffersLength = offerResp.data.count
         currentOffers = offerResp.data.results;
-        console.log(offerResp.data);
-        
-        console.log(currentOffers);
         
         await setOfferDetails();
     }
